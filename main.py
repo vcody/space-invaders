@@ -1,15 +1,13 @@
 import pygame, sys
 from player import Player
 
-# 1. give game class attribute 'player' containing GroupSingle, then add player sprite to it
-# 2. draw the content of player on the display surface
-
 class Game:
     def __init__(self):
-        player_sprite = Player((screen_width/2, screen_height))
+        player_sprite = Player((screen_width/2, screen_height), screen_width, screen_height)
         self.player = pygame.sprite.GroupSingle(player_sprite)
 
     def run(self):
+        self.player.update()
         self.player.draw(screen)
         # update all sprite groups
         # draw all sprite groups
